@@ -10,7 +10,9 @@ class RenderTemplate{
 		$templateName = $template;
 	}
 
-	public static function loadPage(){
+	public static function loadPage($list_customer_html_param = null){
+		$list_customer_html = $list_customer_html_param;
+		
 		require_once(self::$templateName.'/index.php');
 	}
 

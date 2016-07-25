@@ -143,4 +143,13 @@ body{
 }
 .err_lg{
 	display:none;
+	margin-top: 10px;
+    width: 250px;
+}
+.fg_pwd{
+	margin-left: 22%;
+    margin-top: 10px;
+}
+.fg_pwd a, u :hover{
+	text-decoration: none !important;
 }

@@ -17,6 +17,10 @@ class Routes {
 		if(array_key_exists($base_url, $this->url_array) ){
 			$cont =  $this->url_array[$base_url]['controller'];
 			$function =  $this->url_array[$base_url]['function'];
+			$dir_lang_path = __DIR__.'/views/languages/'.CURRENT_LANGUAGE.'/'.$cont.'.php' ;
+			
+			if( file_exists($dir_lang_path) )
+				require_once($dir_lang_path);
 			$cont =  $cont.'Controller';
 			$class = "app\\controllers\\".$cont;
 			$controller= new $class();
