@@ -1,3 +1,4 @@
+<?php use templates\RenderTemplate; ?>
 <!DOCTYPE html>
 <html>
 

@@ -1,9 +1,11 @@
 <?php
-require_once('app/middleware/Acl.php');
+namespace app\middleware;
+use app\middlewareAcl;
+
 class Middleware {
 	var $acl;
-	public function Middleware(){
-		$this->acl = new ACL();
+	public function __construct(){
+		$this->acl = new Acl();
 	}
 	public function isAuthentic(){
 		//do some authentication

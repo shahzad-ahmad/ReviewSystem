@@ -21,7 +21,7 @@ $(document).ready( function() {
         }
         $.ajax({
             type: "POST",
-        url: "/reviewSystem/login",
+        url: "/reviewSystem/login_request",
         data: {
             cred:1,
                 un:$('#un').val(),

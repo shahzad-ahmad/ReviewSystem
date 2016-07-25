@@ -1,5 +1,5 @@
 <?php
-
+namespace templates;
 class RenderTemplate{
 
 	public static $viewName;
