@@ -72,24 +72,26 @@ check redirection based on if session exist or not
 function isRedirectionApplied(){
 	global $ajax_request_url;
 	global $without_session_pages;
-
+	global $api_url;
 	$base_url =  getCurrentUri();
-	if($base_url == URL_ROOT){
-		header('Location: '.dir_root_path.'login');
-	}
-	else if(! in_array($base_url, $ajax_request_url) ){
-		if(! (isset($_SESSION) && isset($_SESSION['user_id'])  )  
-			&&  ( !in_array($base_url, $without_session_pages) ) 
-			) 
+	
+	if( !in_array($base_url, $api_url)){
+		if($base_url == URL_ROOT){
 			header('Location: '.dir_root_path.'login');
-		else if(  ( in_array($base_url, $without_session_pages) )
-				&&  (isset($_SESSION) && isset($_SESSION['user_id']) )
-				){
-			if($_SESSION['user_type'] == USER_TYPE_ADMIN)
-				header('Location: '.dir_root_path.ltrim(URL_ADMIN_DASHBOARD,"/") );
-			else
-				header('Location: '.dir_root_path.ltrim(URL_USER_DASHBOARD,"/") );
+		}
+		else if(! in_array($base_url, $ajax_request_url) ){
+			if(! (isset($_SESSION) && isset($_SESSION['user_id'])  )  
+				&&  ( !in_array($base_url, $without_session_pages) ) 
+				) 
+				header('Location: '.dir_root_path.'login');
+			else if(  ( in_array($base_url, $without_session_pages) )
+					&&  (isset($_SESSION) && isset($_SESSION['user_id']) )
+					){
+				if($_SESSION['user_type'] == USER_TYPE_ADMIN)
+					header('Location: '.dir_root_path.ltrim(URL_ADMIN_DASHBOARD,"/") );
+				else
+					header('Location: '.dir_root_path.ltrim(URL_USER_DASHBOARD,"/") );
+			}
 		}
 	}
-
 }

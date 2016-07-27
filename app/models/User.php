@@ -38,4 +38,13 @@ class User{
 		
 	}
 
+	public static function updatePassword($email,$password){
+		global $db;
+		$db->query("UPDATE User set password = :password WHERE email = :email ");
+		$db->bind(':email', $email ,PDO::PARAM_STR);
+		$db->bind(':password', $password ,PDO::PARAM_STR);
+		$result = $db->execute();
+		
+	}
+
 }

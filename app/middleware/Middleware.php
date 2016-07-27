@@ -11,7 +11,6 @@ class Middleware {
 	public function isAuthentic(){
 
 		isRedirectionApplied();
-
 		//do some authentication
 		$is_Auth = $this->acl->isAllowed();
 		if($is_Auth)

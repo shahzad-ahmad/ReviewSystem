@@ -63,8 +63,9 @@ class LoginController{
 				$to =  $email;
 				$from = EMAIL_SENDING_ADDRESS;
 				$subject = TEXT_EMAIL_FORGOT_PASSWORD_SUBJECT;
-				$body = 'Your new Password is '.randomPassword() ;
-
+				$new_password = randomPassword();
+				$body = 'Your new Password is '. $new_password;
+				User::updatePassword($email, $new_password);
 				$is_email_sent = sendEmail($to , $from , $subject, $body);
 				if($is_email_sent)
 					echo json_encode(array("tag" => 1 , "message" => TEXT_EMAIL_SENT) );
