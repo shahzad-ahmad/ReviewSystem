@@ -1,5 +1,6 @@
 <?php
 function autoload($class) {
+    
     $file_position = strrpos($class, '\\');
     if($file_position === false) {
         return;

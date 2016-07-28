@@ -34,7 +34,10 @@ $without_session_pages = array(URL_LOGIN_PAGE,URL_FORGOT_PASSWORD_PAGE);
 define('URL_AUTH_API','/api/oAuth2/token');
 $appRoutes->addAPIUrl(URL_AUTH_API, 'Token' , 'getToken');
 
-define('URL_AUTH_API_RESOURCE','/api/oAuth2/validate');
-$appRoutes->addAPIUrl(URL_AUTH_API_RESOURCE, 'Token' , 'validateResource');
+define('URL_API_ORDER', '/api/order');
+$appRoutes->addAPIUrl(URL_API_ORDER, 'Order' , 'handleOrderRequest');
 
-$api_url = array(URL_AUTH_API, URL_AUTH_API_RESOURCE);
+
+$client_url = array(URL_API_ORDER);
+$api_url = array(URL_AUTH_API, URL_API_ORDER);
+

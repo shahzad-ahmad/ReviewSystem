@@ -19,7 +19,10 @@ class Routes {
 		$this->urlApiArray[$url] = array('controller'=>$controller, 'function' => $func )	;	
 	}
 
-	public function dispatch($base_url){
+	public function getUrlApiArray(){
+		return $this->urlApiArray;
+	}
+	public function dispatch($base_url , $server_obj){
 		if(array_key_exists($base_url, $this->urlArray) ){
 			$cont =  $this->urlArray[$base_url]['controller'];
 			$function =  $this->urlArray[$base_url]['function'];
@@ -34,12 +37,10 @@ class Routes {
 		}else if(array_key_exists($base_url, $this->urlApiArray) ){
 			$cont =  $this->urlApiArray[$base_url]['controller'];
 			$function =  $this->urlApiArray[$base_url]['function'];
-
+			
 			$cont =  $cont.'Controller';
 			$class = "app\\api\\oAuth2\\controller\\".$cont;
-
-			
-			$controller= new $class();
+			$controller= new $class($server_obj);
 			$controller->$function();
 		}
 		else{		

@@ -16,3 +16,8 @@ define('USER_TYPE_ADMIN',0);
 define('CURRENT_LANGUAGE','english');
 
 define('EMAIL_SENDING_ADDRESS','shahzad.malik@coeus-solutions.de');
+
+define('ACCESS_TOKEN_LIFETIME' , 7200 );
+
+define('ORDER_STATUS_ACTIVE',1);
+define('ORDER_STATUS_DELETED',0);

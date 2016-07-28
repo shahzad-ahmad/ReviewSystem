@@ -20,7 +20,7 @@ function getCurrentUri()
 */
 
 function sendEmail($to , $from , $subject, $body){
-	require_once('lib/PHPMailer/PHPMailerAutoload.php');
+	require_once('vendor/PHPMailer/PHPMailerAutoload.php');
 	$mail = new PHPMailer();
 	
 	$mail->SMTPDebug = 2; 
@@ -95,3 +95,29 @@ function isRedirectionApplied(){
 		}
 	}
 }
+
+
+/**
+get user id from from
+*/
+
+function get_user_id($token){
+	global $db;
+	$db->query("SELECT user_id FROM access_tokens WHERE access_token = :acc_token");
+	$db->bind(':acc_token', $token ,PDO::PARAM_STR);
+	
+	$result = $db->resultset();
+	$count = $db->rowCount() ;
+	if($count > 0 ){
+		return  $result[0]['user_id'];
+	}else return 0;
+}
+
+/**
+* create unique review page id
+*/
+
+function createUniqueId($user_id,$order_id,$token){
+	return md5($user_id.$order_id.$token);
+}
+

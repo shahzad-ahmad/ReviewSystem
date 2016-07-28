@@ -1,0 +1,5 @@
+# Files will ignore in git #
+
+vendor
+composer.lock
+.idea
