@@ -45,7 +45,7 @@ class ApiRepository {
 				 					"review_page_url" => dir_root_path."review?ud=".$unique_id) )	;
 			}else{
 				return json_encode( array("error"=>"invalid order" ,
-				 					"error_description" => "Order is already added" ))	;
+				 					"error_description" => "No order found" ))	;
 			}
 		}
 		else {

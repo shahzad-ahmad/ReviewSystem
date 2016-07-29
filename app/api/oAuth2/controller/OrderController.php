@@ -16,11 +16,9 @@ class OrderController {
 		$token = explode(' ',$token)[1];
 		switch($request_method){
 			case 'PUT':
-				$order_id = 1;
-				//explode('&',str_replace('+', ' ', file_get_contents(tmp_file) ) ));
-				die;
-				$title = "this is order title updated1 hello";
-				$token = "14a518f3ef5eb7d337250a972e85cd0133892f30";
+				$parts = explode('&',str_replace('+', ' ', file_get_contents(tmp_file) ) );
+				$order_id =explode('=', $parts[0])[1];
+				$title =explode('=', $parts[1])[1];
 				$status = $this->apiModel->updateOrder($order_id, $title, $token);
 				echo $status;
 				break;
