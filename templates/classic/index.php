@@ -44,7 +44,7 @@
     </div>
     <?php require_once('app/views/pages/'.RenderTemplate::$viewName) ; ?>
 
-  
+    
 
 </body>
 

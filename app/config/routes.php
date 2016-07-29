@@ -19,6 +19,9 @@ define('URL_LOGIN_PAGE','/login');
 $appRoutes->addUrl(URL_LOGIN_PAGE, 'Login' , 'loadLoginPage');
 $appRoutes->addUrl(URL_LOGIN_AJAX, 'Login' , 'validateCredentials');
 
+define('URL_LOGOUT_PAGE','/sign-out');
+$appRoutes->addUrl(URL_LOGOUT_PAGE, 'Login' , 'logout');
+
 define('URL_FORGOT_PASSWORD_PAGE','/forgot-password');
 $appRoutes->addUrl('/forgot-password', 'Login' , 'forgotPassword');
 $appRoutes->addUrl(URL_FORGOT_PASSWORD_AJAX, 'Login' , 'sendForgotPassword');

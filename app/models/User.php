@@ -47,4 +47,13 @@ class User{
 		
 	}
 
+	public static function getApiIdSecret($user_id){
+		global $db;
+		$db->query("SELECT client_id, client_secret FROM `clients` WHERE user_id = :user_id");
+		$db->bind(':user_id', $user_id ,PDO::PARAM_INT);
+		$result = $db->resultset();
+		return array('id'=>$result[0]['client_id'], 'secret'=>$result[0]['client_secret']);
+
+	}
+
 }

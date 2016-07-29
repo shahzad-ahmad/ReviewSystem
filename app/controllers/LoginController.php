@@ -77,5 +77,9 @@ class LoginController{
 		}
 		die;
 	}
+	public function logout(){
+		session_destroy();
+		header('Location: login');
+	}
 }
 

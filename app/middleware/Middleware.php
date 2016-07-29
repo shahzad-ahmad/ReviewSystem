@@ -2,7 +2,6 @@
 namespace app\middleware;
 use app\middlewareAcl;
 session_start();
-//session_destroy();
 class Middleware {
 	var $acl;
 	public function __construct(){
