@@ -1,5 +1,5 @@
   <link rel="stylesheet" type="text/css" href="<?php echo dir_root_path ; ?>assets/css/style.css">
-  <link rel="stylesheet" type="text/css" href="<?php echo dir_root_path ; ?>assetsviews/css/login.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo dir_root_path ; ?>assets/css/login.css">
   <div class="body"></div>
   
     <div class="header">

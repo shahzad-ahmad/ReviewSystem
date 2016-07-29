@@ -18,15 +18,13 @@ class OrderController {
 			case 'PUT':
 				$parts = explode('&',str_replace('+', ' ', file_get_contents(tmp_file) ) );
 				$order_id =explode('=', $parts[0])[1];
-				$title =explode('=', $parts[1])[1];
-				$status = $this->apiModel->updateOrder($order_id, $title, $token);
+				$status = $this->apiModel->updateOrder($order_id, $token);
 				echo $status;
 				break;
 			case 'POST':
 			
 				$order_id = $_POST['order_id'];
-				$title = $_POST['title'];
-				$status = $this->apiModel->createOrder($order_id, $title, $token);
+				$status = $this->apiModel->createOrder($order_id, $token);
 				echo $status;
 				break;
 

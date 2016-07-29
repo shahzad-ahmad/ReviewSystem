@@ -7,7 +7,11 @@ define('URL_ROOT','/');
 
 define('URL_LOGIN_AJAX','/login-request');
 define('URL_FORGOT_PASSWORD_AJAX','/forgot-password-request');
-$ajax_request_url = array(URL_LOGIN_AJAX , URL_FORGOT_PASSWORD_AJAX);
+define('URL_SUBMIT_REVIEW_AJAX','/submit-review');
+//ajax of submit review
+$appRoutes->addUrl(URL_SUBMIT_REVIEW_AJAX, 'Review' , 'submitReview');
+
+$ajax_request_url = array(URL_LOGIN_AJAX , URL_FORGOT_PASSWORD_AJAX, URL_SUBMIT_REVIEW_AJAX);
 
 
 
@@ -25,7 +29,10 @@ $appRoutes->addUrl(URL_ADMIN_DASHBOARD, 'AdminDashboard' , 'loadAdminDashboard')
 define('URL_USER_DASHBOARD','/dashboard');
 $appRoutes->addUrl(URL_USER_DASHBOARD, 'Dashboard' , 'loadDashboard');
 
-$without_session_pages = array(URL_LOGIN_PAGE,URL_FORGOT_PASSWORD_PAGE);
+define('URL_REVIEW','/review');
+$appRoutes->addUrl(URL_REVIEW, 'Review' , 'loadReviewPage');
+
+$without_session_pages = array(URL_LOGIN_PAGE,URL_FORGOT_PASSWORD_PAGE , URL_REVIEW);
 
 
 /**
@@ -37,7 +44,11 @@ $appRoutes->addAPIUrl(URL_AUTH_API, 'Token' , 'getToken');
 define('URL_API_ORDER', '/api/order');
 $appRoutes->addAPIUrl(URL_API_ORDER, 'Order' , 'handleOrderRequest');
 
+define('URL_API_REVIEW', '/api/review');
+$appRoutes->addAPIUrl(URL_API_REVIEW, 'Review' , 'handleReviewRequest');
 
-$client_url = array(URL_API_ORDER);
-$api_url = array(URL_AUTH_API, URL_API_ORDER);
+
+
+$client_url = array(URL_API_REVIEW, URL_API_ORDER);
+$api_url = array(URL_AUTH_API, URL_API_ORDER, URL_API_ORDER);
 

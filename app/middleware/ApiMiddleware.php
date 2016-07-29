@@ -1,6 +1,6 @@
 <?php 
 namespace app\middleware;
-use app\database\PdoAuth;
+
 class ApiMiddleware{
 	private $server;
 	
@@ -23,7 +23,7 @@ class ApiMiddleware{
 		);
 
 		// $dsn is the Data Source Name for your database, for exmaple "mysql:dbname=my_oauth2_db;host=localhost"
-		$storage = new PdoAuth(array('dsn' => $dsn, 'username' => $username, 'password' => $password), $config);
+		$storage = new \OAuth2\Storage\Pdo(array('dsn' => $dsn, 'username' => $username, 'password' => $password), $config);
 
 		$config = array(
 			'access_lifetime' => ACCESS_TOKEN_LIFETIME

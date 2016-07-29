@@ -121,3 +121,16 @@ function createUniqueId($user_id,$order_id,$token){
 	return md5($user_id.$order_id.$token);
 }
 
+function isReviewAlreadAdded($unique_review_id){
+	global $db;
+	$db->query("SELECT * FROM `review_details` as rev
+				Join `order` as ord ON ord.id = rev.order_id
+				WHERE review_page_id = :review_id");
+	$db->bind(':review_id', $unique_review_id ,PDO::PARAM_STR);
+	$result = $db->resultset();
+	$count = $db->rowCount() ;
+	if($count)
+		return true;
+	else 
+		return false;
+}
